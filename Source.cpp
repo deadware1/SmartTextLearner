@@ -18,10 +18,6 @@ void get_level() {
     cout << "Текущий уровень: " << level + 1 << endl;
 };
 
-void set_level(int k) {
-    level = k - 1;
-};
-
 void rem_forb_chars(string& k) {
     k.erase(remove(k.begin(), k.end(), ' '), k.end());
     k.erase(remove(k.begin(), k.end(), ','), k.end());
@@ -41,12 +37,16 @@ int main()
     SetConsoleOutputCP(1251); // установка кодовой страницы win-cp 1251 в поток вывода
     setlocale(LC_ALL, "Russian");
 
-    set_level(9);
-
     fill_base();
 
     size_t last = 0;
+    level = 0;
 
+    cout << "Введите номер начального предложения: ";
+    cin >> level;
+    level --;
+    cin.get();
+    
     while (level < base.size()) {
     
     get_level();
