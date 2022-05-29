@@ -15,7 +15,7 @@ void fill_base();
 
 void get_level() {
     system("cls");
-    cout << "Текущий уровень: " << level + 1 << endl;
+    cout << "РўРµРєСѓС‰РёР№ СѓСЂРѕРІРµРЅСЊ: " << level + 1 << endl;
 };
 
 void set_level(int k) {
@@ -31,14 +31,14 @@ void rem_forb_chars(string k) {
 };
 
 void pause() {
-    cout << endl << "Нажмите любую клавишу...";
+    cout << endl << "РќР°Р¶РјРёС‚Рµ Р»СЋР±СѓСЋ РєР»Р°РІРёС€Сѓ...";
     cin.get();
 };
 
 int main()
 {
-    SetConsoleCP(1251);// установка кодовой страницы win-cp 1251 в поток ввода
-    SetConsoleOutputCP(1251); // установка кодовой страницы win-cp 1251 в поток вывода
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
     setlocale(LC_ALL, "Russian");
     set_level(1);
 
@@ -50,7 +50,7 @@ int main()
     
     get_level();
     string temp = base[level];
-    if (last == 0) cout << "Текст: " << base[level] << endl;
+    if (last == 0) cout << "РўРµРєСЃС‚: " << base[level] << endl;
 
     last = temp.find(' ', last + 1);
 
@@ -72,14 +72,14 @@ int main()
         } while (_stricmp(input.c_str(), temp.c_str()) != NULL);
     }
     else {
-        cout << "Отлично!";
+        cout << "РћС‚Р»РёС‡РЅРѕ!";
         ++level;
         last = 0;    
         pause();
     }
     } 
 
-    cout << "Текст выучен! Можете отдохнуть :)";
+    cout << "РўРµРєСЃС‚ РІС‹СѓС‡РµРЅ! РњРѕР¶РµС‚Рµ РѕС‚РґРѕС…РЅСѓС‚СЊ :)";
     return 0;
 }
 
