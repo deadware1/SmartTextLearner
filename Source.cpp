@@ -22,7 +22,7 @@ void set_level(int k) {
     level = k - 1;
 };
 
-void rem_forb_chars(string k) {
+void rem_forb_chars(string& k) {
     k.erase(remove(k.begin(), k.end(), ' '), k.end());
     k.erase(remove(k.begin(), k.end(), ','), k.end());
     k.erase(remove(k.begin(), k.end(), '.'), k.end());
