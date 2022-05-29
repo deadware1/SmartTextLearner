@@ -37,10 +37,11 @@ void pause() {
 
 int main()
 {
-    SetConsoleCP(1251);
-    SetConsoleOutputCP(1251);
+    SetConsoleCP(1251);// установка кодовой страницы win-cp 1251 в поток ввода
+    SetConsoleOutputCP(1251); // установка кодовой страницы win-cp 1251 в поток вывода
     setlocale(LC_ALL, "Russian");
-    set_level(1);
+
+    set_level(9);
 
     fill_base();
 
@@ -79,22 +80,24 @@ int main()
     }
     } 
 
-    cout << "Текст выучен! Можете отдохнуть :)";
+    if (base.size() == 0) cout << "Нет исходных данных ("; else cout << "Текст выучен! Можете отдохнуть :)";
+    pause();
     return 0;
 }
 
 void fill_base() {
-    ifstream In("data.txt");
+    ifstream file("data.txt");
     int i = 0;
     string str;
-    while (!In.eof())
-    {
-        
-        getline(In, str);
-        str.append(" ");
-        base.push_back(str);
-        i++;
+    if (file.is_open()) {
+        while (!file.eof())
+        {
+
+            getline(file, str);
+            str.append(" ");
+            base.push_back(str);
+            i++;
+        }
     }
-    
     
 };
